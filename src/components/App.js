@@ -87,11 +87,11 @@ export default function App() {
     0
   );
 
-useEffect(function () {
+useEffect(() => {
   fetch("/questions.json")
-    .then((res) => res.json())
-    .then((data) => dispatch({ type: "dataReceived", payload: data }))
-    .catch((err) => dispatch({ type: "dataFailed" }));
+    .then(res => res.json())
+    .then(data => dispatch({ type: "dataReceived", payload: data.questions }))
+    .catch(() => dispatch({ type: "dataFailed" }));
 }, []);
 
 
